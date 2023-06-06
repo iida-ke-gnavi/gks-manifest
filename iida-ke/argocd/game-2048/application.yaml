@@ -13,6 +13,8 @@ spec:
     repoURL: https://github.com/iida-ke-gnavi/gks-manifest.git
     targetRevision: HEAD
   syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
