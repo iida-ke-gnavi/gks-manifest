@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+spec:
+  progressDeadlineSeconds: 600
+  revisionHistoryLimit: 3
+  strategy:
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 50%
+    type: RollingUpdate
+  template:
+    spec:
+      containers:
+      - name: container
+        ports:
+        - containerPort: 8080
+          name: http
+        imagePullPolicy: Always
+        image: ""
+        resources: {}
+        lifecycle:
+          preStop:
+            exec:
+              command: ["sh", "-c", "sleep 15"]
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}

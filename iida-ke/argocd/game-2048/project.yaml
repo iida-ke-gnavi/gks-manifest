@@ -8,11 +8,20 @@ spec:
   destinations:
   - namespace: game-2048
     server: https://kubernetes.default.svc
-  clusterResourceWhitelist:
-  - group: '*'
-    kind: "*"
-  namespaceResourceWhitelist:
-  - group: '*'
+  namespaceResourceBlacklist:
+  - group: ''
+    kind: ResourceQuota
+  - group: ''
+    kind: LimitRange
+  - group: ''
+    kind: NetworkPolicy
+  - group: ''
+    kind: PersistentVolumeClaim
+  - group: rbac.authorization.k8s.io
     kind: '*'
+  - group: ''
+    kind: DaemonSet
+  - group: ''
+    kind: HorizontalPodAutoscaler
   sourceRepos:
   - https://github.com/iida-ke-gnavi/gks-manifest.git
