@@ -15,4 +15,4 @@ spec:
   - group: '*'
     kind: '*'
   sourceRepos:
-  - https://github.com/iida-ke-gnavi/argocd.git
+  - https://github.com/iida-ke-gnavi/gks-manifest.git
