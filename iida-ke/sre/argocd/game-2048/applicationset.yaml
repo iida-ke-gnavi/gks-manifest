@@ -1,0 +1,17 @@
+- op: replace
+  path: /metadata/name
+  value: game-2048
+- op: add
+  path: /spec/template/spec/destination/namespace
+  value: game-2048
+- op: add
+  path: /spec/generators
+  value:
+    - list:
+        elements:
+        - name: sre-game-2048
+          project: sre
+          path: iida-ke/sre/game-2048
+        - name: game-2048
+          project: game-2048
+          path: iida-ke/developer/game-2048
