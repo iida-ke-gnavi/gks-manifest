@@ -1,0 +1,9 @@
+- op: replace
+  path: /metadata/name
+  value: infraportal
+- op: replace
+  path: /spec/description
+  value: "Server Infra Unit"
+- op: replace
+  path: /spec/destinations/0/namespace
+  value: infraportal

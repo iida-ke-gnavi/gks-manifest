@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: quota
+spec:
+  hard:
+    requests.memory: 64Gi
+    limits.memory: 64Gi
+    requests.cpu: 64000m
+    limits.cpu: 64000m

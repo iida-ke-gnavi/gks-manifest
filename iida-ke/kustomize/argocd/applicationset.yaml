@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: applicationset
+  namespace: argocd
+spec:
+  template:
+    metadata:
+      name: "{{name}}"
+    spec:
+      project: "{{project}}"
+      source:
+        repoURL: https://github.com/iida-ke-gnavi/gks-manifest.git
+        targetRevision: HEAD
+        path: "{{path}}"
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
+        automated:
+          prune: true
+          selfHeal: true
+      destination:
+        server: https://kubernetes.default.svc

@@ -1,27 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: game-2048
+  name: project
   namespace: argocd
 spec:
-  description: game-2048
   destinations:
-  - namespace: game-2048
-    server: https://kubernetes.default.svc
+  - server: https://kubernetes.default.svc
   namespaceResourceBlacklist:
-  - group: ''
+  - group: ""
     kind: ResourceQuota
-  - group: ''
+  - group: ""
     kind: LimitRange
-  - group: ''
+  - group: ""
     kind: NetworkPolicy
-  - group: ''
+  - group: ""
     kind: PersistentVolumeClaim
   - group: rbac.authorization.k8s.io
     kind: '*'
-  - group: ''
+  - group: ""
     kind: DaemonSet
-  - group: ''
+  - group: ""
     kind: HorizontalPodAutoscaler
   sourceRepos:
   - https://github.com/iida-ke-gnavi/gks-manifest.git

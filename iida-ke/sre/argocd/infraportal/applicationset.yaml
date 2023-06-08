@@ -1,0 +1,17 @@
+- op: replace
+  path: /metadata/name
+  value: infraportal
+- op: add
+  path: /spec/template/spec/destination/namespace
+  value: infraportal
+- op: add
+  path: /spec/generators
+  value:
+    - list:
+        elements:
+        - name: sre-infraportal
+          project: sre
+          path: iida-ke/sre/infraportal
+        - name: infraportal
+          project: infraportal
+          path: iida-ke/developer/infraportal
