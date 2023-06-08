@@ -1,0 +1,3 @@
+- op: replace
+  path: /spec/limits/0/default/cpu
+  value: 50m
