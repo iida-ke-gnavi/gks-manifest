@@ -10,4 +10,4 @@
 - op: add
   path: /metadata/annotations
   value:
-    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: mon_is_k8s_test
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: random
