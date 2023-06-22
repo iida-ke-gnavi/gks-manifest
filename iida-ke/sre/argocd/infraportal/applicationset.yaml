@@ -13,7 +13,7 @@
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/write-back-target: deployment.yaml
     argocd-image-updater.argoproj.io/git-branch: main
-    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: mon_is_k8s_test
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: '{{channel}}'
 - op: add
   path: /spec/generators
   value:
@@ -22,6 +22,8 @@
         - name: sre-infraportal
           project: sre
           path: iida-ke/sre/infraportal
+          channel: oth_is_argocd-notifications
         - name: infraportal
           project: infraportal
           path: iida-ke/developer/infraportal
+          channel: oth_is_argocd-notifications
