@@ -24,8 +24,6 @@ spec:
           preStop:
             exec:
               command: ["sh", "-c", "sleep 15"]
-      terminationMessagePath: /dev/termination-log
-      terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
