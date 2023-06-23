@@ -6,3 +6,13 @@ namespace: game-2048
 commonLabels:
   app.kubernetes.io/instance: web
 patches:
+- path: service.yaml
+  target:
+    version: v1
+    kind: Service
+    name: service
+- path: deployment.yaml
+  target:
+    version: v1
+    kind: Deployment
+    name: deployment

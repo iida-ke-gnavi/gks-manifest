@@ -4,6 +4,16 @@
 - op: add
   path: /spec/template/spec/destination/namespace
   value: game-2048
+- op: replace
+  path: /spec/template/metadata/annotations
+  value:
+    argocd-image-updater.argoproj.io/image-list: '{{name}}=168779643184.dkr.ecr.ap-northeast-1.amazonaws.com/{{name}}'
+    argocd-image-updater.argoproj.io/{{name}}.allow-tags: 'regexp:^test*'
+    argocd-image-updater.argoproj.io/{{name}}.update-strategy: latest
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/write-back-target: deployment.yaml
+    argocd-image-updater.argoproj.io/git-branch: main
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: '{{channel}}'
 - op: add
   path: /spec/generators
   value:
@@ -12,6 +22,8 @@
         - name: sre-game-2048
           project: sre
           path: iida-ke/sre/game-2048
+          channel: oth_is_argocd-notifications
         - name: game-2048
           project: game-2048
           path: iida-ke/developer/game-2048
+          channel: oth_is_argocd-notifications

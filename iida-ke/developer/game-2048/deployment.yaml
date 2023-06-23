@@ -1,0 +1,9 @@
+- op: replace
+  path: /metadata/name
+  value: deployment-2048
+- op: replace
+  path: /spec/template/spec/containers/0/name
+  value: app-2048
+- op: replace
+  path: /spec/template/spec/containers/0/ports/0/containerPort
+  value: 80

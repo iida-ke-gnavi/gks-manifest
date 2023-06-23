@@ -7,9 +7,9 @@
 - op: replace
   path: /spec/template/metadata/annotations
   value:
-    argocd-image-updater.argoproj.io/image-list: iida-ke=168779643184.dkr.ecr.ap-northeast-1.amazonaws.com/iida-ke
-    argocd-image-updater.argoproj.io/iida-ke.allow-tags: 'regexp:^test*'
-    argocd-image-updater.argoproj.io/iida-ke.update-strategy: latest
+    argocd-image-updater.argoproj.io/image-list: '{{name}}=168779643184.dkr.ecr.ap-northeast-1.amazonaws.com/{{name}}'
+    argocd-image-updater.argoproj.io/{{name}}.allow-tags: 'regexp:^test*'
+    argocd-image-updater.argoproj.io/{{name}}.update-strategy: latest
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/write-back-target: deployment.yaml
     argocd-image-updater.argoproj.io/git-branch: main

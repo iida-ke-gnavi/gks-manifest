@@ -1,3 +1,12 @@
 - op: replace
+  path: /metadata/name
+  value: service-2048
+- op: replace
   path: /spec/ports/0/port
-  value: 8080
+  value: 80
+- op: replace
+  path: /spec/ports/0/targetPort
+  value: 80
+- op: replace
+  path: /spec/type
+  value: NodePort
