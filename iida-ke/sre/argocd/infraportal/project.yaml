@@ -7,7 +7,3 @@
 - op: replace
   path: /spec/destinations/0/namespace
   value: infraportal
-- op: add
-  path: /metadata/annotations
-  value:
-    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: random
