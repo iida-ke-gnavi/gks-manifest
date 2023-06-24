@@ -1,0 +1,37 @@
+- op: replace
+  path: /metadata/name
+  value: grafana
+- op: replace
+  path: /spec/template/spec/containers/0/name
+  value: grafana
+- op: replace
+  path: /spec/template/spec/containers/0/ports/0/containerPort
+  value: 3000
+- op: add
+  path: /spec/template/spec/containers/0/ports/1
+  value:
+    containerPort: 3000
+    name: health
+    protocol: TCP
+- op: add
+  path: /spec/template/spec/containers/0/livenessProbe
+  value:
+    failureThreshold: 3
+    initialDelaySeconds: 10
+    periodSeconds: 5
+    successThreshold: 1
+    tcpSocket:
+      port: health
+    timeoutSeconds: 5
+- op: add
+  path: /spec/template/spec/containers/0/readinessProbe
+  value:
+    failureThreshold: 3
+    initialDelaySeconds: 10
+    periodSeconds: 5
+    successThreshold: 1
+    httpGet:
+      path: /robots.txt
+      port: health
+      scheme: HTTP
+    timeoutSeconds: 5

@@ -1,3 +1,0 @@
-- op: add
-  path: /spec/egress/0/to/0/ipBlock/except/1
-  value: 8.8.8.8/32  
