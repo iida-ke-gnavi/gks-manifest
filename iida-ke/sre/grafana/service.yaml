@@ -1,4 +1,4 @@
-- op: rep;ace
+- op: replace
   path: /metadata/name
   value: grafana
 - op: replace
