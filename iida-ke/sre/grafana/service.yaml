@@ -1,3 +1,6 @@
+- op: rep;ace
+  path: /metadata/name
+  value: grafana
 - op: replace
   path: /spec/ports/0/port
   value: 3000
