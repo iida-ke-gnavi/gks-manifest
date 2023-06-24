@@ -1,3 +1,6 @@
 - op: replace
+  path: /metadata/name
+  value: infraportal
+- op: replace
   path: /spec/ports/0/port
   value: 8080
