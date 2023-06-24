@@ -5,6 +5,9 @@ resources:
 namespace: game-2048
 commonLabels:
   app.kubernetes.io/instance: web
+images:
+- newName: public.ecr.aws/l6m2t8p7/docker-2048
+  newTag: latest
 patches:
 - path: service.yaml
   target:
