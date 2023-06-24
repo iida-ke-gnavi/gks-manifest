@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: application
+  namespace: argocd
+spec:
+  source:
+    repoURL: https://github.com/iida-ke-gnavi/gks-manifest.git
+    targetRevision: HEAD 
+  destination:
+    server: https://kubernetes.default.svc
+ignoreDifferences:
+- group: apps
+  kind: Deployment
+  jsonPointers:
+  - /spec/replicas  
