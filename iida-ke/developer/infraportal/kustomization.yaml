@@ -6,8 +6,8 @@ namespace: infraportal
 commonLabels:
   app.kubernetes.io/instance: web
 images:
-- newName: 168779643184.dkr.ecr.ap-northeast-1.amazonaws.com/iida-ke
-  newTag: 1.0.5
+- newName: 168779643184.dkr.ecr.ap-northeast-1.amazonaws.com/infraportal
+  newTag: 0.0.1
 patches:
 #- path: ingress.yaml
 #  target:
