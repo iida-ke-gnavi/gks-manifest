@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 - ../../kustomize/developer
 - ingress.yaml
+- crd.yaml
 namespace: grafana
 commonLabels:
   app.kubernetes.io/instance: grafana
