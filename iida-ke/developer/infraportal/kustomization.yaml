@@ -7,7 +7,7 @@ commonLabels:
   app.kubernetes.io/instance: web
 images:
 - newName: 168779643184.dkr.ecr.ap-northeast-1.amazonaws.com/iida-ke
-  newTag: 1.0.4
+  newTag: 1.0.5
 patches:
 #- path: ingress.yaml
 #  target:
