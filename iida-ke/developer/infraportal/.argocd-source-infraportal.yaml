@@ -1,3 +1,0 @@
-kustomize:
-  images:
-  - 168779643184.dkr.ecr.ap-northeast-1.amazonaws.com/iida-ke:test-v1.0.1
