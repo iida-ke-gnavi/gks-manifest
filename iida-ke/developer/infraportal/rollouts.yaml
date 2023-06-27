@@ -4,7 +4,6 @@ metadata:
   name: infraportal-blue-green
 spec:
   replicas: 2
-  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: rollout-blue-green
@@ -32,7 +31,7 @@ metadata:
 spec:
   selector:
     app: rollout-blue-green
-  type: type: ClusterIP
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 80
@@ -45,7 +44,7 @@ metadata:
 spec:
   selector:
     app: rollout-blue-green
-  type: type: ClusterIP
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 80
