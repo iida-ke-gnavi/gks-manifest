@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: infraportal-blue-green
+spec:
+  replicas: 2
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: infraportal2
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: infraportal2
+    spec:
+      containers:
+      - name: infraportal
+        image: 168779643184.dkr.ecr.ap-northeast-1.amazonaws.com/infraportal:0.0.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+  strategy:
+    blueGreen:
+      activeService: rollout-blue-green-svc-active
+      previewService: rollout-blue-green-svc-preview
+      autoPromotionEnabled: false
