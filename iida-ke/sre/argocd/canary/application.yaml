@@ -1,0 +1,20 @@
+- op: replace
+  path: /metadata/name
+  value: canary
+- op: add
+  path: /spec/project
+  value: sre
+- op: add
+  path: /spec/source/path
+  value: iida-ke/sre/canary
+- op: add
+  path: /spec/destination/namespace
+  value: canary
+- op: add
+  path: /spec/syncPolicy
+  value:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: rollout-canary
+spec:
+  replicas: 2
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: rollout-canary
+  template:
+    metadata:
+      labels:
+        app: rollout-canary
+    spec:
+      containers:
+      - name: rollout-canary-sample
+        image: 168779643184.dkr.ecr.ap-northeast-1.amazonaws.com/infraportal:0.0.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+  strategy:
+    canary:
+      steps:
+        - pause: { duration: 10 }
+        - pause: { duration: 10s }
+        - pause: { duration: 10m }
+        - pause: { duration: 10h }
+        - pause: {} 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rollout-canary-svc
+spec:
+  selector:
+    app: rollout-canary
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
