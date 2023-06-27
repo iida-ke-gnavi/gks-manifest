@@ -14,7 +14,7 @@ spec:
         app.kubernetes.io/instance: infraportal2
     spec:
       containers:
-      - name: infraportal
+      - name: infraportal2
         image: 168779643184.dkr.ecr.ap-northeast-1.amazonaws.com/infraportal:0.0.1
         imagePullPolicy: Always
         ports:
