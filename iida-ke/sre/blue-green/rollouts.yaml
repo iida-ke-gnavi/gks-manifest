@@ -1,9 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: infraportal-blue-green
+  name: rollout-blue-green
 spec:
   replicas: 2
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: rollout-blue-green
@@ -13,7 +14,7 @@ spec:
         app: rollout-blue-green
     spec:
       containers:
-      - name: infraportal2
+      - name: rollout-blue-green-sample
         image: 168779643184.dkr.ecr.ap-northeast-1.amazonaws.com/infraportal:0.0.1
         imagePullPolicy: Always
         ports:
@@ -30,10 +31,8 @@ metadata:
   name: rollout-blue-green-svc-active
 spec:
   selector:
-    app.gurunavi.inc/owner: sre
-    app.kubernetes.io/instance: infraportal
-    app.kubernetes.io/managed-by: argocd
-  type: ClusterIP
+    app: rollout-blue-green
+  type: NodePort
   ports:
     - protocol: TCP
       port: 80
@@ -45,10 +44,8 @@ metadata:
   name: rollout-blue-green-svc-preview
 spec:
   selector:
-    app.gurunavi.inc/owner: sre
-    app.kubernetes.io/instance: infraportal
-    app.kubernetes.io/managed-by: argocd
-  type: ClusterIP
+    app: rollout-blue-green
+  type: NodePort
   ports:
     - protocol: TCP
       port: 80
