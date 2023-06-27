@@ -30,7 +30,9 @@ metadata:
   name: rollout-blue-green-svc-active
 spec:
   selector:
-    app: rollout-blue-green
+    app.gurunavi.inc/owner: sre
+    app.kubernetes.io/instance: infraportal
+    app.kubernetes.io/managed-by: argocd
   type: ClusterIP
   ports:
     - protocol: TCP
@@ -43,7 +45,9 @@ metadata:
   name: rollout-blue-green-svc-preview
 spec:
   selector:
-    app: rollout-blue-green
+    app.gurunavi.inc/owner: sre
+    app.kubernetes.io/instance: infraportal
+    app.kubernetes.io/managed-by: argocd
   type: ClusterIP
   ports:
     - protocol: TCP
