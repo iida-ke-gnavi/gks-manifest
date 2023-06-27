@@ -4,3 +4,4 @@ resources:
 - ./infraportal
 - ./game-2048
 - ./grafana
+- ./blue-green
